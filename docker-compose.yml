@@ -1,0 +1,17 @@
+version: '2'
+services:
+        mythx:
+                container_name: mythx
+                image: cpstdhs/gachon-mythx
+                volumes:
+                        - ./contracts:/node_modules/truffle-security/integration-tests/project/contracts
+#                environment:
+#                        - MYTHX_ETH_ADDRESS=0x59e9xxxxxd7cb1b1f97xxxxx5bf2c40d5a55fd32
+#                        - MYTHX_PASSWORD=vPxxxxxem!
+                command: /run.sh
+        mythril:
+                container_name: mythril
+                image: cpstdhs/gachon-mythril
+                volumes:
+                       - ./contracts:/tmp
+                command: /run.sh
